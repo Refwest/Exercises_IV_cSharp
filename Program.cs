@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -84,7 +85,9 @@ class Program
         //words = words.Insert(1, "n");
         //Console.WriteLine(words);
 
-        ////// !Exercise nr 4
+
+        ////// !Exercise nr 4 - Hangman
+
         Console.WriteLine("Exercise nr 4 \n");
 
         string[] Words = new string[8] {"atlas", "biology", "conduct", "desorb", "effect", "frightening", "Goteborg", "hamster"};
@@ -93,19 +96,40 @@ class Program
         int randomNumber = bigRandom.Next(0, 7);
 
         string hiddenWord = Words[randomNumber];
-        Console.WriteLine(hiddenWord);
-        Console.WriteLine(hiddenWord.Length);
-
-        string shotWord = hiddenWord;
-        Console.WriteLine(shotWord);
+        string asteriskWord = hiddenWord;
+        //Console.WriteLine(shotWord);
         
         for (int i = 0; i < hiddenWord.Length; i++)
         {
-            
-            shotWord = shotWord.Replace(hiddenWord[i], '*');
-            
+            asteriskWord = asteriskWord.Replace(hiddenWord[i], '*');
         }
-        Console.WriteLine(shotWord);
+        //Console.WriteLine(shotWord);
+
+        Console.WriteLine("Hi, let's start hangman game!");
+
+        while (hiddenWord != asteriskWord)
+        {
+            Console.WriteLine("Take guess of letter:");
+            char shot = char.Parse(Console.ReadLine());
+            if (hiddenWord.Contains(shot))
+            {
+                for (int j = 0; j < hiddenWord.Length; j++)
+                {
+                    if (hiddenWord[j] == shot)
+                    {
+                        string shot2 = char.ToString(shot);
+                        asteriskWord = asteriskWord.Remove(j,1);
+                        asteriskWord = asteriskWord.Insert(j, shot2);
+                    }
+                }
+                Console.WriteLine("Good job, your guess is correct. Word is: {0}", asteriskWord);
+            }
+            else
+            {
+                Console.WriteLine("Your guess is incorect, try again");
+            }
+        }
+        Console.WriteLine("Congratulation, You win");
 
 
     }
