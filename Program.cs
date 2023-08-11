@@ -109,7 +109,7 @@ class Program
 
         while (hiddenWord != asteriskWord)
         {
-            Console.WriteLine("Take guess of letter:");
+            Console.WriteLine("The word is: {0}. Take guess of letter:", asteriskWord);
             char shot = char.Parse(Console.ReadLine());
             if (hiddenWord.Contains(shot))
             {
@@ -122,14 +122,14 @@ class Program
                         asteriskWord = asteriskWord.Insert(j, shot2);
                     }
                 }
-                Console.WriteLine("Good job, your guess is correct. Word is: {0}", asteriskWord);
+                Console.WriteLine("Good job, your guess is correct.");
             }
             else
             {
                 Console.WriteLine("Your guess is incorect, try again");
             }
         }
-        Console.WriteLine("Congratulation, You win");
+        Console.WriteLine("Congratulation you correctly guessed the word \"{0}\", You win.", asteriskWord);
 
 
     }
