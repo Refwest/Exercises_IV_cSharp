@@ -134,21 +134,54 @@ class Program
         //Console.ResetColor();
 
 
-        ////!Params Keyword
+        //    ////!Params Keyword
 
-        int[] myArray = {4, 5, 6, 7, 8, 9};
-        PrintArray(myArray);
-        PrintArray( 1, 2, 3, 9, 10, 15, 79);
+        //    int[] myArray = {4, 5, 6, 7, 8, 9};
+        //    PrintArray(myArray);
+        //    PrintArray( 1, 2, 3, 9, 10, 15, 79);
 
-       
+
+        //}
+
+        //public static void PrintArray(params int[] array)
+        //{
+        //    for (int i = 0; i < array.Length; i++)
+        //    {
+        //        Console.WriteLine(array[i]);
+        //    }
+
+
+        ////!Method Overloading
+
+
+        string z = "Natalia";
+        string m = "Filip";
+
+        Add(5,7);
+        Add(z, m);
+
+
     }
 
-    public static void PrintArray(params int[] array)
-    {
-        for (int i = 0; i < array.Length; i++)
+
+        public static void Add (int a, int b)
         {
-            Console.WriteLine(array[i]);
+        int answer = a + b;
+        Console.WriteLine(answer);
+        
         }
+
+    public static void Add (string x, string y)
+    {
+        string answer = x + " + " + y;
+        Console.WriteLine(answer);
+
     }
+
+
+
+   
+
+
 
 }
