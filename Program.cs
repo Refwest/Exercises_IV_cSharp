@@ -86,102 +86,59 @@ class Program
         //Console.WriteLine(words);
 
 
-        ////// !Exercise nr 4 - Hangman
+        //// !Exercise nr 4 - Hangman
 
-        //Console.WriteLine("Exercise nr 4 \n");
+        Console.WriteLine("Exercise nr 4 \n");
 
-        //string[] Words = new string[8] {"atlas", "biology", "conduct", "desorb", "effect", "frightening", "Goteborg", "hamster"};
+        string[] Words = new string[8] { "atlas", "biology", "conduct", "desorb", "effect", "frightening", "Goteborg", "hamster" };
 
-        //Random bigRandom = new Random();
-        //int randomNumber = bigRandom.Next(0, 7);
+        Random bigRandom = new Random();
+        int randomNumber = bigRandom.Next(0, 7);
 
-        //string hiddenWord = Words[randomNumber];
-        //string asteriskWord = hiddenWord;
-        ////Console.WriteLine(shotWord);
+        string hiddenWord = Words[randomNumber];
+        string asteriskWord = hiddenWord;
 
-        //for (int i = 0; i < hiddenWord.Length; i++)
-        //{
-        //    asteriskWord = asteriskWord.Replace(hiddenWord[i], '*');
-        //}
-        ////Console.WriteLine(shotWord);
+        //Console.WriteLine(shotWord);
 
-        //Console.WriteLine("Hi, let's start hangman game!");
-
-        //while (hiddenWord != asteriskWord)
-        //{
-        //    Console.WriteLine("The word is: {0}. Take guess of letter:", asteriskWord);
-        //    char shot = char.Parse(Console.ReadLine());
-        //    if (hiddenWord.Contains(shot))
-        //    {
-        //        for (int j = 0; j < hiddenWord.Length; j++)
-        //        {
-        //            if (hiddenWord[j] == shot)
-        //            {
-        //                string shot2 = char.ToString(shot);
-        //                asteriskWord = asteriskWord.Remove(j,1);
-        //                asteriskWord = asteriskWord.Insert(j, shot2);
-        //            }
-        //        }
-        //        Console.WriteLine("Good job, your guess is correct.");
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Your guess is incorect, try again");
-        //    }
-        //}
-        //Console.ForegroundColor = ConsoleColor.Green;
-        //Console.WriteLine("Congratulation! You correctly guessed the word \"{0}\". You win.", asteriskWord);
-        //Console.ResetColor();
-
-
-        //    ////!Params Keyword
-
-        //    int[] myArray = {4, 5, 6, 7, 8, 9};
-        //    PrintArray(myArray);
-        //    PrintArray( 1, 2, 3, 9, 10, 15, 79);
-
-
-        //}
-
-        //public static void PrintArray(params int[] array)
-        //{
-        //    for (int i = 0; i < array.Length; i++)
-        //    {
-        //        Console.WriteLine(array[i]);
-        //    }
-
-
-        ////!Method Overloading
-
-
-        string z = "Natalia";
-        string m = "Filip";
-
-        Add(5,7);
-        Add(z, m);
-
-
-    }
-
-
-        public static void Add (int a, int b)
+        for (int i = 0; i < hiddenWord.Length; i++)
         {
-        int answer = a + b;
-        Console.WriteLine(answer);
-        
+            asteriskWord = asteriskWord.Replace(hiddenWord[i], '*');
         }
 
-    public static void Add (string x, string y)
-    {
-        string answer = x + " + " + y;
-        Console.WriteLine(answer);
+
+        //asteriskWord = new string('*', hiddenWord.Length);
+        //Console.WriteLine(hiddenWord);
+        //Console.WriteLine(asteriskWord);
+
+        //Console.WriteLine(shotWord);
+
+        Console.WriteLine("Hi, let's start hangman game!");
+
+        while (hiddenWord != asteriskWord)
+        {
+            Console.WriteLine("The word is: {0}. Take guess of letter:", asteriskWord);
+            char shot = char.Parse(Console.ReadLine());
+            if (hiddenWord.Contains(shot))
+            {
+                for (int j = 0; j < hiddenWord.Length; j++)
+                {
+                    if (hiddenWord[j] == shot)
+                    {
+                        string shot2 = char.ToString(shot);
+                        asteriskWord = asteriskWord.Remove(j, 1);
+                        asteriskWord = asteriskWord.Insert(j, shot2);
+                    }
+                }
+                Console.WriteLine("Good job, your guess is correct.");
+            }
+            else
+            {
+                Console.WriteLine("Your guess is incorect, try again");
+            }
+        }
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("Congratulation! You correctly guessed the word \"{0}\". You win.", asteriskWord);
+        Console.ResetColor();
 
     }
-
-
-
-   
-
-
-
 }
